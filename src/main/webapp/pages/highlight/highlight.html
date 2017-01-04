@@ -1,0 +1,123 @@
+<!doctype html >
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search Ability demo</title>
+    <link rel="shortcut icon" href="../../static/images/solr-ico.png">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/doc/doc.css">
+    <script type="text/javascript" charset="utf-8" src="../../static/vendor/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/vendor/doc/doc.js"></script>
+</head>
+
+<body>
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Search ability demo</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li role="presentation">
+                    <a href="../analysis/analysis.html">分词</a>
+                </li>
+                <li role="presentation">
+                    <a href="#" class="active">高亮</a>
+                </li>
+                <li role="presentation">
+                    <a href="#">统计</a>
+                </li>
+                <li role="presentation">
+                    <a href="#">相关性排序</a>
+
+                <li role="presentation">
+                    <a href="#">SDK</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container bs-docs-container">
+
+    <div class="row">
+        <div class="col-md-9 solr-demo-container" role="main">
+
+            <div class="bs-docs-section">
+                <h1 id="highlight" class="page-header">高亮</h1>
+
+                <p class="lead">用于对搜索结果进行高亮处理。用户可以自定义高亮标签。</p>
+
+                <h2 id="support_type">支持的分词类型</h2>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>字段分词类型</th>
+                        <th>说明</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>不分词</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>中文分词</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>中文分词(拼音)</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>中文单字分词</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>中文单字分词(拼音)</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>模糊分词</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>模糊分词(拼音)</td>
+                        <td>支持中文检索高亮，不支持拼音检索高亮。</td>
+                    </tr>
+                    <tr>
+                        <td>英文去词根分词</td>
+                        <td>支持</td>
+                    </tr>
+                    <tr>
+                        <td>英文简单分词</td>
+                        <td>支持</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
+                <ul class="nav bs-docs-sidenav">
+                    <li>
+                        <a href="#highlight">高亮</a>
+                        <ul class="nav">
+                            <li><a href="#support_type">支持的分词类型</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top">
+                    返回顶部
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

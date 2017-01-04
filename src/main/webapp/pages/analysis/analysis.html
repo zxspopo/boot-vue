@@ -1,0 +1,228 @@
+<!doctype html >
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search Ability demo</title>
+    <link rel="shortcut icon" href="../../static/images/solr-ico.png">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/doc/doc.css">
+    <script type="text/javascript" charset="utf-8" src="../../static/vendor/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/vendor/doc/doc.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../static/vendor/vue/vue.min.js"></script>
+</head>
+
+<body>
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../../index.html" class="navbar-brand">Search ability demo</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="active">
+                    <a href="#">分词</a>
+                </li>
+                <li role="presentation">
+                    <a href="../highlight/highlight.html">高亮</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container bs-docs-container">
+
+    <div class="row">
+        <div class="col-md-9 solr-demo-container" role="main">
+
+            <div class="bs-docs-section">
+                <h1 id="alaysis" class="page-header">分词</h1>
+
+                <p class="lead">用于搜索数据的索引建立和检索。</p>
+
+                <h3 id="alaysis_no">不分词</h3>
+                <p>该字段不分词，可用于需要统计运算(group/facet/collapse)的字段。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_no"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_no()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_no">
+                    {{ alaysisResult_no }}
+                </div>
+
+                <h3 id="alaysis_zhcn">中文分词</h3>
+                <p>用于含有语义的分词场景，用户可以自定义词库和黑名单。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_zhcn"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_zhcn()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_zhcn">
+                    {{ alaysisResult_zhcn }}
+                </div>
+
+                <h3 id="alaysis_zhcn_pinyin">中文分词(拼音)</h3>
+                <p>用于含有语义的分词场景，用户可以自定义词库和黑名单，对汉字额外提供拼音检索功能。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_zhcn_pinyin"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_zhcn_pinyin()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_zhcn_pinyin">
+                    {{ alaysisResult_zhcn_pinyin }}
+                </div>
+
+                <h3 id="alaysis_zhcnstandard">中文单字分词</h3>
+                <p>将中文分成单个字符，可用于文档的内容检索。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_zhcn_standard"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_zhcn_standard()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_zhcn_standard">
+                    {{ alaysisResult_zhcn_standard }}
+                </div>
+
+                <h3 id="alaysis_zhcnstandard_pinyin">中文单字分词(拼音)</h3>
+                <p>将中文分成单个字符，可用于文档的内容检索，对汉字额外提供拼音检索功能。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_zhcn_standard_pinyin"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_zhcn_standard_pinyin()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_zhcn_standard_pinyin">
+                    {{ alaysisResult_zhcn_standard_pinyin }}
+                </div>
+
+                <h3 id="alaysis_like">模糊分词</h3>
+                <p>类似数据库左右模糊的效果。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_like"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_like()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_like">
+                    {{ alaysisResult_like }}
+                </div>
+
+                <h3 id="alaysis_like_pinyin">模糊分词(拼音)</h3>
+                <p>类似数据库左右模糊的效果，对汉字额外提供拼音检索功能。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_like_pinyin"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_like_pinyin()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_like_pinyin">
+                    {{ alaysisResult_like_pinyin }}
+                </div>
+
+                <h3 id="alaysis_en">英文去词根分词</h3>
+                <p>用于对英文去词根，复数向单数转换的功能，如drinking-&lt;drink;requirements-&lt;requirement</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_en"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_en()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_en">
+                    {{ alaysisResult_en }}
+                </div>
+
+                <h3 id="alaysis_en_simple">英文简单分词</h3>
+                <p>对英文进行标点符号和空格分词。</p>
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                        <textarea type="text" class="form-control"
+                                  v-model="alaysisText_en_simple"></textarea>
+                        </div>
+                        <button class="btn btn-default col-lg-2 col-md-2" type="button"
+                                v-on:click="alaysis_en_simple()">Go!
+                        </button>
+                    </div>
+                </div><!-- /example -->
+                <div class="highlight" v-html="alaysisResult_en_simple">
+                    {{ alaysisResult_en_simple }}
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
+                <ul class="nav bs-docs-sidenav">
+                    <li>
+                        <a href="#alaysis">分词</a>
+                        <ul class="nav">
+                            <li><a href="#alaysis_no">不分词</a></li>
+                            <li><a href="#alaysis_zhcn">中文分词</a></li>
+                            <li><a href="#alaysis_zhcn_pinyin">中文分词(拼音)</a></li>
+                            <li><a href="#alaysis_zhcnstandard">中文单字分词</a></li>
+                            <li><a href="#alaysis_zhcnstandard_pinyin">中文单字分词(拼音)</a></li>
+                            <li><a href="#alaysis_like">模糊分词</a></li>
+                            <li><a href="#alaysis_like_pinyin">模糊分词(拼音)</a></li>
+                            <li><a href="#alaysis_en">英文去词根分词</a></li>
+                            <li><a href="#alaysis_en_simple">英文简单分词</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top">
+                    返回顶部
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="analysis.js"></script>
+</html>
