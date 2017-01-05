@@ -1,46 +1,3 @@
-<!doctype html >
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Search Ability demo</title>
-    <link rel="shortcut icon" href="../../static/images/solr-ico.png">
-    <link rel="stylesheet" type="text/css" href="../../static/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../static/vendor/doc/doc.css">
-    <script type="text/javascript" charset="utf-8" src="../../static/vendor/jquery/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../static/vendor/doc/doc.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../../static/vendor/vue/vue.min.js"></script>
-</head>
-
-<body>
-<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="../../index.html" class="navbar-brand">Search ability demo</a>
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav">
-                <li role="presentation" class="active">
-                    <a href="#">分词</a>
-                </li>
-                <li role="presentation">
-                    <a href="../highlight/highlight.html">高亮</a>
-                </li>
-                <!--<li role="presentation">-->
-                <!--<a href="#">统计</a>-->
-                <!--</li>-->
-                <!--<li role="presentation">-->
-                <!--<a href="#">相关性排序</a>-->
-
-                <!--<li role="presentation">-->
-                <!--<a href="#">SDK</a>-->
-                <!--</li>-->
-            </ul>
-        </nav>
-    </div>
-</header>
-
 <div class="container bs-docs-container">
 
     <div class="row">
@@ -60,7 +17,7 @@
                                   v-model="alaysisText_no"></textarea>
                         </div>
                         <button class="btn btn-default col-lg-2 col-md-2" type="button"
-                                v-on:click="alaysis_no()">Go!
+                                v-on:click="alaysis_no">Go!
                         </button>
                     </div>
                 </div><!-- /example -->
@@ -231,7 +188,3 @@
         </div>
     </div>
 </div>
-
-</body>
-<script type="text/javascript" charset="utf-8" src="analysis.js"></script>
-</html>
