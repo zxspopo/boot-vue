@@ -1,0 +1,52 @@
+<div class="container bs-docs-container">
+
+    <div class="row">
+        <div class="col-md-9 solr-demo-container" role="main">
+
+            <div class="bs-docs-section">
+                <h1 id="statistic" class="page-header">统计</h1>
+
+                <p class="lead">用于对检索结果进行汇总统计，支持facet统计，group查询，去重统计多维度的统计功能。</p>
+
+                <h2 id="facet">facet统计</h2>
+                <p>实现对检索结果的按维度统计，通常用于分类导航，分类统计信息（每类数据的平均数，最大值等等）等功能。</p>
+                <div class="bs-example">
+                    <img src="images/facet.png" width="100%">
+                </div>
+
+                <h2 id="group">group统计</h2>
+                <p>通常用于展示每个维度的前N条数据，通常用于搜索结果下拉分类展示。</p>
+                <div class="bs-example">
+                    <img src="images/group.png"  height="100%">
+                </div>
+
+                <h2 id="collapse">聚合统计</h2>
+                <p>
+                    聚合子句可以在一定程度上保证展示结果的多样性。
+                    如一次查询可以查出很多的文档，但是如果某个分类的多个文档分值都比较高，则都排在了前面，导致一页中所展示的结果几乎都属于同一分类，这样不利于结果展示。
+                    对此，聚合子句可以对每个分类的文档进行抽取，使得每个分类都有展示文档的机会。
+                </p>
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
+                <ul class="nav bs-docs-sidenav">
+                    <li>
+                        <a href="#statistic">统计</a>
+                        <ul class="nav">
+                            <li><a href="#facet">facet统计</a></li>
+                            <li><a href="#group">group统计</a></li>
+                            <li><a href="#collapse">聚合统计</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top">
+                    返回顶部
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -8,6 +8,9 @@ define({
     },
     "/pages/highlight/highlight": function () {
         initPage("pages/highlight/highlight");
+    },
+    "/pages/statistic/statistic": function () {
+        initPage("pages/statistic/statistic");
     }
 });
 
